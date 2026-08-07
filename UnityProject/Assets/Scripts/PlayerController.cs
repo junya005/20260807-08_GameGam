@@ -19,16 +19,16 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        // 1. 入力の更新
+        // 入力の更新
         _playerHandler.HandleInput();
 
-        // 2. 攻撃処理の判定
+        // 攻撃処理の判定
         if (_playerHandler.IsAttackPressed)
         {
             _playerAttack.Attack();
         }
 
-        // 3. 移動処理（手動入力 + 自動移動）
+        // 移動処理（手動入力 + 自動移動）
         Vector2 manualMove = _playerHandler.MoveInput;
         Vector2 autoMove = _playerAutoMover.GetCurrentAutoMove();
 
