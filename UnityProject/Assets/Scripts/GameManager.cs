@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class GameManager : MonoBehaviour
     [Header("References")]
     [SerializeField] private PlayerController playerController;
     [SerializeField] private PlayerTargetBridge playerTargetBridge;
+    [SerializeField] private GameObject resultPanel;
 
     [Header("Settings")]
     [SerializeField] private float countdownSeconds = 3.0f;
@@ -48,13 +50,21 @@ public class GameManager : MonoBehaviour
                 StartCoroutine(StartCountdownRoutine());
             }
         }
+
+        if (CurrentState == GameState.Result)
+        {
+            if (Keyboard.current != null && Keyboard.current.spaceKey.wasPressedThisFrame)
+            {
+                SceneManager.LoadScene("Main");
+            }
+        }
     }
 
     private IEnumerator StartCountdownRoutine()
     {
         _isCountingDown = true;
         Debug.Log("カウントダウン開始...");
-        
+
         float timer = countdownSeconds;
         while (timer > 0)
         {
@@ -87,6 +97,7 @@ public class GameManager : MonoBehaviour
                     playerController.SetPlayerActive(false);
                 }
                 Debug.Log("State: Result - ゲーム終了、プレイヤー操作ロック");
+                resultPanel.SetActive(true);
                 break;
         }
     }
