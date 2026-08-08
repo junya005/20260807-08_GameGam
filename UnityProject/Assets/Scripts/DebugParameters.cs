@@ -66,9 +66,18 @@ public class DebugParameters : MonoBehaviour
             _playerAttack.ShadowRadius = DrawSlider("Shadow Radius", _playerAttack.ShadowRadius, 0.1f, 5f);
             
             Vector2 sOffset = _playerAttack.ShadowOffset;
-            sOffset.x = DrawSlider("Offset X", sOffset.x, -5f, 5f);
-            sOffset.y = DrawSlider("Offset Y", sOffset.y, -5f, 5f);
+            sOffset.x = DrawSlider("Shadow Offset X", sOffset.x, -5f, 5f);
+            sOffset.y = DrawSlider("Shadow Offset Y", sOffset.y, -5f, 5f);
             _playerAttack.ShadowOffset = sOffset;
+            GUILayout.Space(5);
+
+            GUILayout.Label("=== Player Bat ===", UnityEditorStyles.BoldLabel());
+            _playerAttack.BatRadius = DrawSlider("Bat Radius", _playerAttack.BatRadius, 0.1f, 5f);
+            
+            Vector2 bOffset = _playerAttack.BatOffset;
+            bOffset.x = DrawSlider("Bat Offset X", bOffset.x, -5f, 5f);
+            bOffset.y = DrawSlider("Bat Offset Y", bOffset.y, -5f, 5f);
+            _playerAttack.BatOffset = bOffset;
             GUILayout.Space(10);
         }
 

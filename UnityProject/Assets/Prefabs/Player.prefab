@@ -102,6 +102,7 @@ GameObject:
   - component: {fileID: 7026254688351620832}
   - component: {fileID: 2459896799816535783}
   - component: {fileID: 3989885800683884670}
+  - component: {fileID: 4591570522840603081}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -205,6 +206,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4591570522840603081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 659624743762547258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61369608cebe9624e8988632a997526a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerAnimationEventRelay
+  playerAttack: {fileID: 1046041670618463646}
 --- !u!1 &4138826630590435146
 GameObject:
   m_ObjectHideFlags: 0
@@ -316,6 +330,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAttack
   shadowOffset: {x: 0, y: -0.5}
   shadowRadius: 0.5
+  batOffset: {x: 1.5, y: 0.8}
+  batRadius: 0.5
 --- !u!114 &1880769452372171282
 MonoBehaviour:
   m_ObjectHideFlags: 0

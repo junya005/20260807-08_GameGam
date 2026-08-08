@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     public event Action<Vector2, float> OnPlayerAttack;
 
     private bool _isActive = true;
+    private bool _isAttacking = false; // 攻撃中かどうかを判定するフラグ
 
     public void SetPlayerActive(bool isActive)
     {
@@ -33,15 +34,14 @@ public class PlayerController : MonoBehaviour
         _playerAttack.OnAttackTriggered += (pos, radius) =>
         {
             OnPlayerAttack?.Invoke(pos, radius);
-            if (_playerView != null) _playerView.PlayAttackView();
         };
     }
 
     private void Update()
     {
-        if (!_isActive)
+        if (!_isActive || _isAttacking)
         {
-            // 非アクティブ時も見た目はIdleにしておく
+            // 非アクティブ時や攻撃中は見た目をIdle（移動なし）にして入力を受け付けない
             if (_playerView != null) _playerView.UpdateMoveView(Vector2.zero, false);
             return;
         }
@@ -52,7 +52,11 @@ public class PlayerController : MonoBehaviour
         // 2. 攻撃アクション
         if (_playerHandler.IsAttackPressed)
         {
+            _isAttacking = true; // 攻撃した瞬間に移動をロック
             _playerAttack.Attack();
+            // アニメーション再生（このアニメーション内のAnimationEventで実際の当たり判定が行われる）
+            if (_playerView != null) _playerView.PlayAttackView();
+            return; // 攻撃開始フレームではこれ以降の移動処理を行わない
         }
 
         // 3. 移動処理（手動入力 + 自動移動）
@@ -72,6 +76,7 @@ public class PlayerController : MonoBehaviour
     // 外部（GameManager等）から呼び出してアニメーション等をリセットするためのメソッド
     public void TriggerReset()
     {
+        _isAttacking = false;
         if (_playerView != null)
         {
             _playerView.PlayResetView();
