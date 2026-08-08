@@ -4,6 +4,7 @@ using UnityEngine;
 public class CountDownTime : CountBase
 {
     [SerializeField] private GameObject textStartCount; // テキストスタートカウント
+    [SerializeField] private ManageCountDonw manageCountDown;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -16,6 +17,16 @@ public class CountDownTime : CountBase
     void Update()
     {
         if (!isApplyCount) return;
-            CountDown();
+
+        CountDown();
+
+        SetCountDown();
+    }
+
+    // カウントダウンを設定する関数
+    private void SetCountDown()
+    {
+        int time = (int)Mathf.Ceil(currentTime);
+        manageCountDown.SetCountDonw(time);
     }
 }
