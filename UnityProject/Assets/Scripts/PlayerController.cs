@@ -13,6 +13,13 @@ public class PlayerController : MonoBehaviour
     // Bridgeなどに攻撃の発生を伝えるイベント
     public event Action<Vector2, float> OnPlayerAttack;
 
+    private bool _isActive = true;
+
+    public void SetPlayerActive(bool isActive)
+    {
+        _isActive = isActive;
+    }
+
     private void Awake()
     {
         _playerHandler = GetComponent<PlayerHandler>();
@@ -29,6 +36,8 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        if (!_isActive) return;
+
         // 入力の更新
         _playerHandler.HandleInput();
 
