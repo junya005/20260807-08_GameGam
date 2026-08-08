@@ -6,10 +6,10 @@ public class StartGame : MonoBehaviour
 {
     private bool isStart = false;
     private bool isAlreadyPush = false; 
-    [SerializeField] private ControlStartText controlStartText;
     [SerializeField] private StartCount startCount;
-    [SerializeField] private GameObject textStart;
+    [SerializeField] private GameObject Title;
     [SerializeField] private GameObject textStartCount;
+    [SerializeField] private GameObject rule;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -22,11 +22,6 @@ public class StartGame : MonoBehaviour
         if (isStart) return;
 
         PushToSpace();
-        // テキストの演出が終了したらゲーム開始
-        if(controlStartText.GetFinishedEffect())
-        {
-            GameStart();
-        }
     }
 
     // スペースを入力したら処理される関数
@@ -37,8 +32,7 @@ public class StartGame : MonoBehaviour
         {
             if (Keyboard.current.spaceKey.wasPressedThisFrame)
             {
-                // スタートテキストにスタート申請をする
-                controlStartText.SetOfferToStart();
+                GameStart();
                 isAlreadyPush = true;
             }
         }
@@ -48,7 +42,9 @@ public class StartGame : MonoBehaviour
     private void GameStart()
     {
         // スタートテキストを非アクティブ化
-        textStart.SetActive(false);
+        Title.SetActive(false);
+        // アクティブ化
+        rule.SetActive(true);
         // タイムテキストをアクティブ化
         textStartCount.SetActive(true);
         // カウントダウンを許可

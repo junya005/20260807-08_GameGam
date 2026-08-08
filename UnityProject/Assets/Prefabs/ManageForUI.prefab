@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3858949578170113191}
   - component: {fileID: -3030183890483498654}
+  - component: {fileID: -8831697724961625489}
+  - component: {fileID: 817201146820478880}
   m_Layer: 0
   m_Name: ManageForUI
   m_TagString: Untagged
@@ -45,4 +47,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StartGame
   controlStartText: {fileID: 0}
-  StartText: {fileID: 0}
+  startCount: {fileID: 0}
+  textStart: {fileID: 0}
+  textStartCount: {fileID: 0}
+--- !u!114 &-8831697724961625489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2513511836407879342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78e61abc729969b42bee991facfad121, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ReturnTitle
+  returnText: {fileID: 0}
+--- !u!114 &817201146820478880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2513511836407879342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fc0f76ea81d3754aad35b55baa6c39c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ManageCountDonw
+  result: {fileID: 0}
+  timer: {fileID: 0}

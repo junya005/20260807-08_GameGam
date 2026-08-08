@@ -2,7 +2,7 @@ using UnityEngine;
 
 public abstract class CountBase : MonoBehaviour
 {
-    [SerializeField] protected float settingTime = 0f; // 設定時間
+    [SerializeField] protected float settingTime = 1f; // 設定時間
     protected float currentTime; // 現在の時間
     protected bool isApplyCount = false;
 
