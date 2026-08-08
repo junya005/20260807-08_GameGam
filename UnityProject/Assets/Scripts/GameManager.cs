@@ -1,7 +1,9 @@
 using System.Collections;
+using System.Data;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using static UnityEngine.Rendering.DebugUI;
 
 public class GameManager : MonoBehaviour
 {
@@ -16,6 +18,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private PlayerController playerController;
     [SerializeField] private PlayerTargetBridge playerTargetBridge;
     [SerializeField] private GameObject resultPanel;
+    [SerializeField] private GameObject rule;
+    [SerializeField] private ResultScript re;
     [SerializeField] private CountDownTime countdownTime;
 
     [Header("Settings")]
@@ -119,6 +123,8 @@ public class GameManager : MonoBehaviour
         if (CurrentState == GameState.InGame)
         {
             Debug.Log($"攻撃実行によりゲーム終了。結果: {isSuccess}, 距離: {distance}");
+            re.Set(isSuccess);
+            rule.SetActive(false);
             ChangeState(GameState.Result);
         }
     }
