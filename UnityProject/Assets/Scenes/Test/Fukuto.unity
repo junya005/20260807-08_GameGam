@@ -359,6 +359,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -8831697724961625489, guid: 61578b9b1c14ad644bc684e439d0973d, type: 3}
+      propertyPath: returnText
+      value: 
+      objectReference: {fileID: 941876838}
     - target: {fileID: -3030183890483498654, guid: 61578b9b1c14ad644bc684e439d0973d, type: 3}
       propertyPath: textStart
       value: 
@@ -424,6 +428,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 61578b9b1c14ad644bc684e439d0973d, type: 3}
+--- !u!114 &941876838 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2236627809524395662, guid: fb81636487ba0314b9127a5febe7518e, type: 3}
+  m_PrefabInstance: {fileID: 1248246481}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c811d5fc6b404724db33216a6dcbfcdc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ReturnTitleText
 --- !u!1 &1170023964 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8298373597450657471, guid: fb81636487ba0314b9127a5febe7518e, type: 3}
