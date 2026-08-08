@@ -312,6 +312,7 @@ MonoBehaviour:
   playerController: {fileID: 5912297063119148966}
   playerTargetBridge: {fileID: 1172182167690446808}
   resultPanel: {fileID: 7400293577922946043}
+  countdownTime: {fileID: 8087067170745321531}
   countdownSeconds: 3
 --- !u!1 &6196889436325386030
 GameObject:

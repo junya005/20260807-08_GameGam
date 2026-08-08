@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private PlayerController playerController;
     [SerializeField] private PlayerTargetBridge playerTargetBridge;
     [SerializeField] private GameObject resultPanel;
+    [SerializeField] private CountDownTime countdownTime;
 
     [Header("Settings")]
     [SerializeField] private float countdownSeconds = 3.0f;
@@ -58,6 +59,16 @@ public class GameManager : MonoBehaviour
                 SceneManager.LoadScene("Main");
             }
         }
+
+        if (countdownTime.GetCurrenTime() <= 0)
+        {
+            if (playerController != null)
+            {
+                playerController.SetPlayerActive(false);
+            }
+            ChangeState(GameState.Result);
+            OnPlayerAttackResult(false, 0);
+        }
     }
 
     private IEnumerator StartCountdownRoutine()
@@ -98,6 +109,7 @@ public class GameManager : MonoBehaviour
                 }
                 Debug.Log("State: Result - ゲーム終了、プレイヤー操作ロック");
                 resultPanel.SetActive(true);
+                countdownTime.StopCount();
                 break;
         }
     }
